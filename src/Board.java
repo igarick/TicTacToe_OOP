@@ -1,17 +1,6 @@
+import java.util.HashMap;
 import java.util.Map;
 
 public class Board {
-//    private int coordinate_X;
-//    private int coordinate_Y;
-
-
-
-
-
-
-
-
-    void createBoard() {
-
-    }
+    Map<int[], String> board = new HashMap<>();
 }

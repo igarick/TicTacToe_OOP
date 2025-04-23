@@ -7,41 +7,39 @@ public class Main {
     private final static String COMMAND_REGEX = "[%s%s]".formatted(START, QUIT);
 
     public static void main(String[] args) {
-        while (true) {
-            System.out.println("(Н)ачать игру или (В)ыйти");
 
-            String command = inputCommand();
-            if (command.equals(QUIT)) {
-                return;
-            }
+        Menu menu = new Menu(scanner);
+        menu.inputCommand();
 
-            startGameLoop();
-            System.out.println();
-        }
+
+
+
+
+        scanner.close();
+
+
+
+
+            //Map<Coordinates, String> board = new HashMap<>();
+
+
+
+        //}
     }
 
-        static String inputCommand() {
-            while (true) {
-                String command = scanner.next().toUpperCase();
-                if (!isValidCommand(command)) {
-                    System.out.printf("Введите букву %s или %s %n", START, QUIT);
-                } else {
-                    return command;
-                }
-            }
-        }
+
 
         private static boolean isValidCommand(String command){
             return command.length() == 1 && command.matches(COMMAND_REGEX);
         }
 
-        public void startGameLoop() {
 
-            System.out.println("Введите 2 числа через пробел: 1-е это ряд, 2-е это колонка");
-
-
-
-        }
+//
+//            System.out.println("Введите 2 числа через пробел: 1-е это ряд, 2-е это колонка");
+//
+//
+//
+//        }
 
 
         // - abstract class Entity
