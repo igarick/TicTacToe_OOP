@@ -2,44 +2,53 @@ import java.util.Scanner;
 
 public class Main {
     public static Scanner scanner = new Scanner(System.in);
-    private final static String START = "Н";
+//    private final static String START = "Н";
+
+//    private final static String COMMAND_REGEX = "[%s%s]".formatted(START, QUIT);
+
     private final static String QUIT = "В";
-    private final static String COMMAND_REGEX = "[%s%s]".formatted(START, QUIT);
+    public static final int ROW_COUNT = 3;
+    public static final int COL_COUNT = 3;
 
     public static void main(String[] args) {
 
-        Menu menu = new Menu(scanner);
-        menu.inputCommand();
+//        while (true) {
+//            Menu menu = new Menu(scanner);
+//            String command = menu.inputCommand();
+//            if(command.matches(QUIT)) {
+//                return;
+//            }
+        // - сюда добавить DO SOMETHING + }
+//------------------------------------------начать и выйти ГОТОВО-----------------------
 
+//            Map<Player, Coordinates> board = new HashMap<>();
+//
+            System.out.println("Введите 2е цифры через пробел: 1я - ряд, 2я - колонка");
+            InputPerson inputPerson = new InputPerson();
+            inputPerson.inputCoordinates(scanner);
+            int rowPlayer = inputPerson.getRowPerson();
+            int colPlayer = inputPerson.getColPerson();
 
+            Board board = new Board();
+            Coordinates coordinatesPers = new Coordinates(rowPlayer, colPlayer);
+            Player player = new Player();
 
+            board.renderBoard();
+            board.addPlayer(coordinatesPers, player);
 
+//            for (int row = 0; row < ROW_COUNT; row++) {
+//                System.out.print("|");
+//                for (int col = 0; col < COL_COUNT; col++) {
+//                    System.out.print("  |");
+//                }
+//                System.out.println();
+//            }
 
-        scanner.close();
+            int p = 12;
 
-
-
-
-            //Map<Coordinates, String> board = new HashMap<>();
-
-
-
-        //}
-    }
-
-
-
-        private static boolean isValidCommand(String command){
-            return command.length() == 1 && command.matches(COMMAND_REGEX);
         }
 
-
-//
-//            System.out.println("Введите 2 числа через пробел: 1-е это ряд, 2-е это колонка");
-//
-//
-//
-//        }
+    }
 
 
         // - abstract class Entity
@@ -67,7 +76,7 @@ public class Main {
 
         // --- Actions
         // - вызывает каждому makeMove()
-    }
+
 
 
 

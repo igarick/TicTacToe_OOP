@@ -6,7 +6,7 @@ public class Menu {
     private final static String QUIT = "В";
     private final static String COMMAND_REGEX = "[%s%s]".formatted(START, QUIT);
 
-    Scanner input;
+    private final Scanner input;
 
     public Menu(Scanner input) {
         this.input = input;
