@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -23,18 +25,38 @@ public class Main {
 
 //            Map<Player, Coordinates> board = new HashMap<>();
 //
-            System.out.println("Введите 2е цифры через пробел: 1я - ряд, 2я - колонка");
-            InputPerson inputPerson = new InputPerson();
-            inputPerson.inputCoordinates(scanner);
-            int rowPlayer = inputPerson.getRowPerson();
-            int colPlayer = inputPerson.getColPerson();
+        Board board = new Board();
 
-            Board board = new Board();
-            Coordinates coordinatesPers = new Coordinates(rowPlayer, colPlayer);
-            Player player = new Player();
+        System.out.println("Введите 2е цифры через пробел: 1я - ряд, 2я - колонка");
 
-            board.renderBoard();
-            board.addPlayer(coordinatesPers, player);
+        InputPerson inputPerson = new InputPerson(board);
+        inputPerson.inputCoordinates(scanner);
+        int rowPlayer = inputPerson.getRowPerson();
+        int colPlayer = inputPerson.getColPerson();
+
+        Person player = new Person("Cross");
+        Coordinates coordinatesPers = new Coordinates(rowPlayer, colPlayer);
+
+        board.addPlayer(coordinatesPers, player);
+        board.renderBoard();
+
+        System.out.println("Ход бота");
+
+        InputBot inputBot = new InputBot();
+        int rowBot = inputBot.getRow();
+        int colBot = inputBot.getCol();
+
+        Bot bot = new Bot("Nought");
+        Coordinates coordinatesBot = new Coordinates(rowBot, colBot);
+
+        board.addPlayer(coordinatesBot, bot);
+        board.renderBoard();
+
+
+
+
+
+
 
 //            for (int row = 0; row < ROW_COUNT; row++) {
 //                System.out.print("|");

@@ -1,7 +1,9 @@
+import java.util.Objects;
+
 public class Coordinates {
 
-    private int row;
-    private int col;
+    private final int row;
+    private final int col;
 
     public Coordinates(int row, int col) {
         this.row = row;
@@ -15,8 +17,21 @@ public class Coordinates {
     public int getCol() {
         return col;
     }
-//    public String toString() {
-//        return "(" + x + "," + y + ")";
-//    }
+    public String toString() {
+        return "(" + row + "," + col + ")";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Coordinates that = (Coordinates) o;
+        return row == that.row && col == that.col;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(row, col);
+    }
 }
 

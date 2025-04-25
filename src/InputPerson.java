@@ -1,3 +1,4 @@
+import java.util.Map;
 import java.util.Scanner;
 
 public class InputPerson {
@@ -9,19 +10,17 @@ public class InputPerson {
 
     private int row;
     private int col;
+    private final Board board;
 
-  public InputPerson() {
-//      this.input = input;
-//      this.x = x;
-//      this.y = y;
-
+  public InputPerson(Board board) {
+      this.board = board;
   }
 
 
     public void inputCoordinates(Scanner input) {
-        //System.out.println("Введите 2е цифры через пробел: 1я - ряд, 2я - колонка");
+
         while (true) {
-            String[] coordinates = input.next().split(" ");
+            String[] coordinates = input.nextLine().split(" ");
 
             int row = Integer.parseInt(coordinates[0]);
             int col = Integer.parseInt(coordinates[1]);
@@ -39,22 +38,21 @@ public class InputPerson {
         return ((row < 0) || (row >= ROW_COUNT) || (col < 0) || (col >= COL_COUNT));
     }
 
-
-//    public void setX(int x) {
-//        this.x = x;
-//    }
-
     public int getRowPerson() {
         return row;
     }
-
-//    public void setY(int y) {
-//        this.y = y;
-//    }
 
     public int getColPerson() {
         return col;
     }
 
+    boolean isCellEmpty(Board board) {
+
+      return false;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
 }
 

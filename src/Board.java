@@ -6,10 +6,11 @@ public class Board {
     int ROW_COUNT = Main.ROW_COUNT;
     int COL_COUNT = Main.COL_COUNT;
 
-    Map<Coordinates, Player> board = new HashMap<>();
+    private final Map<Coordinates, Entity> board = new HashMap<>();
 
-    public void addPlayer(Coordinates coordinates, Player player) {
-        board.put(coordinates, player);
+
+    public void addPlayer(Coordinates coordinates, Entity entity) {
+        board.put(coordinates, entity);
     }
 
     public void renderBoard() {
@@ -18,21 +19,21 @@ public class Board {
                 Coordinates coordinates = new Coordinates(row, col);
                 Entity entity = board.get(coordinates);
                 if (entity != null) {
-                    System.out.print(" " + entity.getSymbol() + " ");
+                    System.out.print("[" + entity.getSymbol() + "]");
                 } else {
-                    System.out.print("|   |");
+                    System.out.print("[ ]");
                 }
 
             }
             System.out.println();
         }
     }
+        public boolean isOccupied (Coordinates coords){
+            return board.containsKey(coords);
+        }
 
 
-
-
-
-    //    private final static int ROW_COUNT = 3;
+        //    private final static int ROW_COUNT = 3;
 //    private final static int COL_COUNT = 3;
 
 //*--------------------------------------------------
@@ -42,5 +43,5 @@ public class Board {
 //    public void printBoard(int coordinateRow, int coordinateCol) {
 
 //    }
-    //--------------------------------------------------
-}
+        //--------------------------------------------------
+    }
