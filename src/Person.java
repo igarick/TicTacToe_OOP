@@ -1,20 +1,21 @@
 public class Person extends Entity{
 
-    public Person (String name) {
-        super(name);
+    public Person () {
+        super(Symbol.CROSS);
     }
 
-    @Override
-    public void makeTurn(Coordinates coordinates, Entity person, Board board) {
-        board.occupyCell(coordinates, person);
-    }
+//    @Override
+//    public void makeTurn(Coordinates coordinates, Entity person, Board board) {
+//        board.occupyCell(coordinates, person);
+//    }
+//
+//    @Override
+//    public char getSymbol() {
+//        return Symbol.CROSS.getSymbol();
+//    }
 
-    public String getSymbol() {
-        return Symbol.CROSS.getSymbol();
-    }
-
-    @Override
-    public String toString() {
-        return Symbol.CROSS.getSymbol();
-    }
+//    @Override
+//    public String toString() {
+//        return Symbol.CROSS.getSymbol();
+//    }
 }

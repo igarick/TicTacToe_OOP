@@ -1,5 +1,6 @@
 public class Check {
 
+
 //    public boolean areAllCellsTaken(Board board) {
 //        for (int row = 0; row < Values.ROW_COUNT.getValue(); row++) {
 //            for (int col = 0; col < Values.COL_COUNT.getValue(); col++) {

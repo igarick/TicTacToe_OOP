@@ -23,8 +23,14 @@ public class Board {
             System.out.println();
         }
     }
-        public boolean isOccupied (int row, int col){
-            Coordinates cellCoordinates = new Coordinates(row, col);
+    public boolean isOccupied (int row, int col){
+        Coordinates cellCoordinates = new Coordinates(row, col);
             return board.containsKey(cellCoordinates);
-        }
     }
+
+    public boolean isFull() {
+        return board.size() == Values.TOTAL_CELLS.getValue();
+    }
+
+
+}

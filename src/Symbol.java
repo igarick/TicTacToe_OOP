@@ -1,14 +1,14 @@
 public enum Symbol {
-    CROSS("X"),
-    ZERO("O");
+    CROSS('X'),
+    ZERO('O');
 
-    private final String symbol;
+    private final char symbol;
 
-    Symbol(String symbol) {
+    Symbol(char symbol) {
         this.symbol = symbol;
     }
 
-    public String getSymbol() {
+    public char getSymbol() {
         return symbol;
     }
 

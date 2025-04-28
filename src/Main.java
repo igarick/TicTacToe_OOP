@@ -31,7 +31,7 @@ public class Main {
         int row = input.getRow();
         int col = input.getCol();
 
-        Person person = new Person("Cross");
+        Person person = new Person();
         Coordinates coordinates = new Coordinates(row, col);
 
         person.makeTurn(coordinates, person, board);
@@ -44,7 +44,7 @@ public class Main {
         int rowBot = inputBot.getRow();
         int colBot = inputBot.getCol();
 
-        Bot bot = new Bot("Zero");
+        Bot bot = new Bot();
         Coordinates coordinatesBot = new Coordinates(rowBot, colBot);
 
         bot.makeTurn(coordinatesBot, bot, board);

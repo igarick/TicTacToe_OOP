@@ -9,8 +9,8 @@ public class InputBot {
     public void getCoordinates(Board board) {
         boolean isOccupied = true;
         while (isOccupied) {
-            row = random.nextInt(0, 4);
-            col = random.nextInt(0, 4);
+            row = random.nextInt(0, 3);
+            col = random.nextInt(0, 3);
 
             isOccupied = board.isOccupied(row, col);
         }
