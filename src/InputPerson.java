@@ -1,23 +1,11 @@
-import java.util.Map;
 import java.util.Scanner;
 
 public class InputPerson {
 
-    int ROW_COUNT = Main.ROW_COUNT;
-    int COL_COUNT = Main.COL_COUNT;
-
-    //Scanner input;
-
     private int row;
     private int col;
-    private final Board board;
 
-  public InputPerson(Board board) {
-      this.board = board;
-  }
-
-
-    public void inputCoordinates(Scanner input) {
+    public void inputCoordinates(Scanner input, Board board) {
 
         while (true) {
             String[] coordinates = input.nextLine().split(" ");
@@ -25,8 +13,10 @@ public class InputPerson {
             int row = Integer.parseInt(coordinates[0]);
             int col = Integer.parseInt(coordinates[1]);
 
-            if (isFigureAllowed(row, col)) {
+            if (isOutOfBoards(row, col)) {
                 System.out.println("Некорректное значение! Введите 2 числа");
+            } else if (board.isOccupied(row, col)) {
+                System.out.println("Ячейка занята! Введите другие координаты");
             } else {
                 this.row = row;
                 this.col = col;
@@ -34,25 +24,16 @@ public class InputPerson {
             }
         }
     }
-    boolean isFigureAllowed(int row, int col) {
-        return ((row < 0) || (row >= ROW_COUNT) || (col < 0) || (col >= COL_COUNT));
+    boolean isOutOfBoards(int row, int col) {
+        return ((row < 0) || (row >= Values.ROW_COUNT.getValue()) || (col < 0) || (col >= Values.COL_COUNT.getValue()));
     }
 
-    public int getRowPerson() {
+    public int getRow() {
         return row;
     }
 
-    public int getColPerson() {
+    public int getCol() {
         return col;
-    }
-
-    boolean isCellEmpty(Board board) {
-
-      return false;
-    }
-
-    public Board getBoard() {
-        return board;
     }
 }
 

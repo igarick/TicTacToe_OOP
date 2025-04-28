@@ -3,19 +3,15 @@ import java.util.Map;
 
 public class Board {
 
-    int ROW_COUNT = Main.ROW_COUNT;
-    int COL_COUNT = Main.COL_COUNT;
-
     private final Map<Coordinates, Entity> board = new HashMap<>();
 
-
-    public void addPlayer(Coordinates coordinates, Entity entity) {
+    public void occupyCell(Coordinates coordinates, Entity entity) {
         board.put(coordinates, entity);
     }
 
     public void renderBoard() {
-        for (int row = 0; row < ROW_COUNT; row++) {
-            for (int col = 0; col < COL_COUNT; col++) {
+        for (int row = 0; row < Values.ROW_COUNT.getValue(); row++) {
+            for (int col = 0; col < Values.COL_COUNT.getValue(); col++) {
                 Coordinates coordinates = new Coordinates(row, col);
                 Entity entity = board.get(coordinates);
                 if (entity != null) {
@@ -23,25 +19,12 @@ public class Board {
                 } else {
                     System.out.print("[ ]");
                 }
-
             }
             System.out.println();
         }
     }
-        public boolean isOccupied (Coordinates coords){
-            return board.containsKey(coords);
+        public boolean isOccupied (int row, int col){
+            Coordinates cellCoordinates = new Coordinates(row, col);
+            return board.containsKey(cellCoordinates);
         }
-
-
-        //    private final static int ROW_COUNT = 3;
-//    private final static int COL_COUNT = 3;
-
-//*--------------------------------------------------
-//    int ROW_COUNT = Main.ROW_COUNT;
-//    int COL_COUNT = Main.COL_COUNT;
-//
-//    public void printBoard(int coordinateRow, int coordinateCol) {
-
-//    }
-        //--------------------------------------------------
     }

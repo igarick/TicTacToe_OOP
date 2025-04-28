@@ -1,5 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -9,8 +7,7 @@ public class Main {
 //    private final static String COMMAND_REGEX = "[%s%s]".formatted(START, QUIT);
 
     private final static String QUIT = "В";
-    public static final int ROW_COUNT = 3;
-    public static final int COL_COUNT = 3;
+
 
     public static void main(String[] args) {
 
@@ -29,27 +26,28 @@ public class Main {
 
         System.out.println("Введите 2е цифры через пробел: 1я - ряд, 2я - колонка");
 
-        InputPerson inputPerson = new InputPerson(board);
-        inputPerson.inputCoordinates(scanner);
-        int rowPlayer = inputPerson.getRowPerson();
-        int colPlayer = inputPerson.getColPerson();
+        InputPerson input = new InputPerson();
+        input.inputCoordinates(scanner, board);
+        int row = input.getRow();
+        int col = input.getCol();
 
-        Person player = new Person("Cross");
-        Coordinates coordinatesPers = new Coordinates(rowPlayer, colPlayer);
+        Person person = new Person("Cross");
+        Coordinates coordinates = new Coordinates(row, col);
 
-        board.addPlayer(coordinatesPers, player);
+        person.makeTurn(coordinates, person, board);
         board.renderBoard();
 
         System.out.println("Ход бота");
 
         InputBot inputBot = new InputBot();
+        inputBot.getCoordinates(board);
         int rowBot = inputBot.getRow();
         int colBot = inputBot.getCol();
 
-        Bot bot = new Bot("Nought");
+        Bot bot = new Bot("Zero");
         Coordinates coordinatesBot = new Coordinates(rowBot, colBot);
 
-        board.addPlayer(coordinatesBot, bot);
+        bot.makeTurn(coordinatesBot, bot, board);
         board.renderBoard();
 
 
