@@ -10,18 +10,29 @@ public class InputPerson {
         while (true) {
             String[] coordinates = input.nextLine().split(" ");
 
-            int row = Integer.parseInt(coordinates[0]);
-            int col = Integer.parseInt(coordinates[1]);
-
-            if (isOutOfBoards(row, col)) {
+            if (coordinates.length < 2) {
                 System.out.println("Некорректное значение! Введите 2 числа");
-            } else if (board.isOccupied(row, col)) {
-                System.out.println("Ячейка занята! Введите другие координаты");
-            } else {
-                this.row = row;
-                this.col = col;
-                return;
+                continue;
             }
+
+            try {
+                int row = Integer.parseInt(coordinates[0]);
+                int col = Integer.parseInt(coordinates[1]);
+
+                if (isOutOfBoards(row, col)) {
+                    System.out.println("Некорректное значение! Введите 2 числа");
+                } else if (board.isOccupied(row, col)) {
+                    System.out.println("Ячейка занята! Введите другие координаты");
+                } else {
+                    this.row = row;
+                    this.col = col;
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                throw new RuntimeException("Некорректное значение! Введите 2 числа");
+            }
+
+
         }
     }
     boolean isOutOfBoards(int row, int col) {

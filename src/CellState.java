@@ -13,8 +13,4 @@ public enum CellState {
         return symbol;
     }
 
-//    @Override
-//    public String toString() {
-//        return symbol;
-//    }
 }

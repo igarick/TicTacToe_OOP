@@ -20,7 +20,7 @@ public class Menu {
         public String inputCommand() {
             System.out.println("(Н)ачать игру или (В)ыйти");
             while (true) {
-                String command = input.next().toUpperCase();
+                String command = input.nextLine().toUpperCase();
                 if (!isValidCommand(command)) {
                     System.out.printf("Введите букву %s или %s %n", START, QUIT);
                 } else {

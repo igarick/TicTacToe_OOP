@@ -1,8 +1,8 @@
 public enum GameState {
-    GAME_STATE_X_WON("Х победили!"),
-    GAME_STATE_O_WON("O победили!"),
-    GAME_STATE_DRAW("Ничья"),
-    GAME_STATE_NOT_FINISHED("Игра не закончена");
+    X_WON("Х победили!"),
+    O_WON("O победили!"),
+    DRAW("Ничья"),
+    NOT_FINISHED("Игра не закончена");
 
     private final String state;
 
@@ -13,4 +13,5 @@ public enum GameState {
     public String getState() {
         return state;
     }
+
 }

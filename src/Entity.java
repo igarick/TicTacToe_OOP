@@ -6,12 +6,11 @@ public abstract class Entity {
     private final CellState cellState;
 
     public Entity(CellState cellState) {
-        //this.name = name;
         this.cellState = cellState;
     }
 
     public void makeTurn(Coordinates coordinates, Entity entity, Board board) {
-        board.occupyCell(coordinates, entity);
+        board.placeEntity(coordinates, entity);
     }
 
     public char getSymbol() {
@@ -21,8 +20,4 @@ public abstract class Entity {
     public String toString() {
         return cellState.toString();
     }
-
-//    public String getName() {
-//        return name;
-//    }
 }
