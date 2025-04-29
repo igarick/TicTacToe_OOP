@@ -4,6 +4,11 @@ public class Person extends Entity{
         super(CellState.CELL_STATE_CROSS);
     }
 
+    @Override
+    public int getValue() {
+        return 1;
+    }
+
 //    @Override
 //    public void makeTurn(Coordinates coordinates, Entity person, Board board) {
 //        board.occupyCell(coordinates, person);

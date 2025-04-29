@@ -20,4 +20,6 @@ public abstract class Entity {
     public String toString() {
         return cellState.toString();
     }
+
+    public abstract int getValue();
 }

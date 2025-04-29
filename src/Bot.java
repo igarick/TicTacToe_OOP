@@ -4,6 +4,11 @@ public class Bot extends Entity{
         super(CellState.CELL_STATE_ZERO);
     }
 
+    @Override
+    public int getValue() {
+        return -1;
+    }
+
 //    @Override
 //    public void makeTurn(Coordinates coordinates, Entity bot, Board board) {
 //        board.occupyCell(coordinates, bot);
