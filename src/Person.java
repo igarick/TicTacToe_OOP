@@ -1,7 +1,7 @@
 public class Person extends Entity{
 
     public Person () {
-        super(Symbol.CROSS);
+        super(CellState.CELL_STATE_CROSS);
     }
 
 //    @Override
@@ -16,6 +16,6 @@ public class Person extends Entity{
 
 //    @Override
 //    public String toString() {
-//        return Symbol.CROSS.getSymbol();
+//        return CellState.CELL_STATE_CROSS.toString();
 //    }
 }

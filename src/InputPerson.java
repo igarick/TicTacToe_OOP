@@ -25,7 +25,7 @@ public class InputPerson {
         }
     }
     boolean isOutOfBoards(int row, int col) {
-        return ((row < 0) || (row >= Values.ROW_COUNT.getValue()) || (col < 0) || (col >= Values.COL_COUNT.getValue()));
+        return ((row < 0) || (row >= Board.ROW_COUNT) || (col < 0) || (col >= Board.COL_COUNT));
     }
 
     public int getRow() {

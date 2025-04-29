@@ -37,6 +37,8 @@ public class Main {
         person.makeTurn(coordinates, person, board);
         board.renderBoard();
 
+
+
         System.out.println("Ход бота");
 
         InputBot inputBot = new InputBot();
@@ -50,10 +52,7 @@ public class Main {
         bot.makeTurn(coordinatesBot, bot, board);
         board.renderBoard();
 
-
-
-
-
+        String s = board.checkGameState();
 
 
 //            for (int row = 0; row < ROW_COUNT; row++) {

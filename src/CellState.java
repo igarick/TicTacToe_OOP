@@ -1,10 +1,11 @@
-public enum Symbol {
-    CROSS('X'),
-    ZERO('O');
+public enum CellState {
+    CELL_STATE_EMPTY(' '),
+    CELL_STATE_CROSS('X'),
+    CELL_STATE_ZERO('O');
 
     private final char symbol;
 
-    Symbol(char symbol) {
+    CellState(char symbol) {
         this.symbol = symbol;
     }
 

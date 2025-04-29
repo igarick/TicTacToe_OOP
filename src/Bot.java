@@ -1,7 +1,7 @@
 public class Bot extends Entity{
 
     public Bot() {
-        super(Symbol.ZERO);
+        super(CellState.CELL_STATE_ZERO);
     }
 
 //    @Override
