@@ -3,24 +3,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Board {
-
     public static final int ROW_COUNT = 3;
     public static final int COL_COUNT = 3;
     public static final int TOTAL_CELLS = ROW_COUNT * COL_COUNT;
 
-    private final Map<Coordinates, Entity> board = new HashMap<>();
+    private final Map<Coordinates, Player> board = new HashMap<>();
 
-    public void placeEntity(Coordinates coordinates, Entity entity) {
-        board.put(coordinates, entity);
+    public void placePlayer(Coordinates coordinates, Player player) {
+        board.put(coordinates, player);
     }
 
     public void renderBoard() {
         for (int row = 0; row < ROW_COUNT; row++) {
             for (int col = 0; col < COL_COUNT; col++) {
-                Coordinates coordinates = new Coordinates(row, col);
-                Entity entity = board.get(coordinates);
-                if (entity != null) {
-                    System.out.print("[" + entity.getSymbol() + "]");
+                Player player = board.get(new Coordinates(row, col));
+                if (player != null) {
+                    System.out.print("[" + player.getSymbol() + "]");
                 } else {
                     System.out.print("[ ]");
                 }
@@ -28,9 +26,8 @@ public class Board {
             System.out.println();
         }
     }
-    public boolean isOccupied (int row, int col){
-        Coordinates cellCoordinates = new Coordinates(row, col);
-            return board.containsKey(cellCoordinates);
+    public boolean isCellOccupied(int row, int col){
+        return board.containsKey(new Coordinates(row, col));
     }
 
     public boolean areAllCellsTaken() {
@@ -84,10 +81,10 @@ public class Board {
     }
 
     public int calculateNumValue(Coordinates coordinates) {
-        Entity entity = board.get(coordinates);
+        Player player = board.get(coordinates);
 
-        if (entity != null) {
-            return entity.getValue();
+        if (player != null) {
+            return player.getValue();
         } else {
             return 0;
         }

@@ -1,18 +1,19 @@
 import java.util.Random;
 
 public class InputBot {
-    Random random = new Random();
-
     private int row;
     private int col;
 
-    public void getCoordinates(Board board) {
-        boolean isOccupied = true;
-        while (isOccupied) {
-            row = random.nextInt(0, 3);
-            col = random.nextInt(0, 3);
+    private final Random random = new Random();
 
-            isOccupied = board.isOccupied(row, col);
+    public void getRandomCellEmptyCoordinates(Board board) {
+        while (true) {
+            row = random.nextInt(Board.ROW_COUNT);
+            col = random.nextInt(Board.COL_COUNT);
+
+            if (!board.isCellOccupied(row, col)) {
+                break;
+            }
         }
     }
 

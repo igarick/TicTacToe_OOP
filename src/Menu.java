@@ -12,27 +12,21 @@ public class Menu {
         this.input = input;
     }
 
-//    public void readSomething(){
-//        String line = scan.nextLine();
-    // Do something
-
-
-        public String inputCommand() {
-            System.out.println("(Н)ачать игру или (В)ыйти");
-            while (true) {
-                String command = input.nextLine().toUpperCase();
-                if (!isValidCommand(command)) {
-                    System.out.printf("Введите букву %s или %s %n", START, QUIT);
-                } else {
-                    return command;
-                }
+    public String inputCommand() {
+        System.out.println("(Н)ачать игру или (В)ыйти");
+        while (true) {
+            String command = input.nextLine().toUpperCase();
+            if (!isValidCommand(command)) {
+                System.out.printf("Введите букву %s или %s %n", START, QUIT);
+            } else {
+                return command;
             }
         }
+    }
 
-        private boolean isValidCommand(String command){
-            return command.length() == 1 && command.matches(COMMAND_REGEX);
-        }
-
+    private boolean isValidCommand(String command){
+        return command.length() == 1 && command.matches(COMMAND_REGEX);
+    }
 }
 
 

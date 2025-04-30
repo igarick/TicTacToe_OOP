@@ -1,7 +1,6 @@
 public enum CellState {
-    CELL_STATE_EMPTY(' '),
-    CELL_STATE_CROSS('X'),
-    CELL_STATE_ZERO('O');
+    CROSS('X'),
+    ZERO('O');
 
     private final char symbol;
 
@@ -12,5 +11,4 @@ public enum CellState {
     public char getSymbol() {
         return symbol;
     }
-
 }

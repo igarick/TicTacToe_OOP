@@ -1,66 +1,24 @@
 import java.util.Scanner;
 
 public class Main {
-    public static Scanner scanner = new Scanner(System.in);
-
-//    private final static String START = "Н";
-
-//    private final static String COMMAND_REGEX = "[%s%s]".formatted(START, QUIT);
 
     private final static String QUIT = "В";
 
-
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Menu menu = new Menu(scanner);
 
         while (true) {
-            Menu menu = new Menu(scanner);
+
             String command = menu.inputCommand();
             if (command.matches(QUIT)) {
+                System.out.println("Выход из игры");
                 break;
             }
 
-            Board board = new Board();
+            Game game = new Game(scanner);
+            game.start();
 
-            while (true) {
-
-                System.out.println("Введите 2е цифры через пробел: 1я - ряд, 2я - колонка");
-
-                InputPerson input = new InputPerson();
-                input.inputCoordinates(scanner, board);
-                int row = input.getRow();
-                int col = input.getCol();
-
-                Person person = new Person();
-                Coordinates coordinates = new Coordinates(row, col);
-
-                person.makeTurn(coordinates, person, board);
-                board.renderBoard();
-
-                GameState state = board.checkGameState();
-                if (state != GameState.NOT_FINISHED) {
-                    System.out.println(state);
-                    break;
-                }
-
-                System.out.println("Ход бота");
-
-                InputBot inputBot = new InputBot();
-                inputBot.getCoordinates(board);
-                int rowBot = inputBot.getRow();
-                int colBot = inputBot.getCol();
-
-                Bot bot = new Bot();
-                Coordinates coordinatesBot = new Coordinates(rowBot, colBot);
-
-                bot.makeTurn(coordinatesBot, bot, board);
-                board.renderBoard();
-
-                state = board.checkGameState();
-                if (state != GameState.NOT_FINISHED) {
-                    System.out.println(state);
-                    break;
-                }
-            }
         }
     }
 }

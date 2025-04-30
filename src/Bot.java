@@ -1,7 +1,7 @@
-public class Bot extends Entity{
+public class Bot extends Player {
 
     public Bot() {
-        super(CellState.CELL_STATE_ZERO);
+        super(CellState.ZERO);
     }
 
     @Override
@@ -9,10 +9,10 @@ public class Bot extends Entity{
         return -1;
     }
 
-//    @Override
-//    public void makeTurn(Coordinates coordinates, Entity bot, Board board) {
-//        board.occupyCell(coordinates, bot);
-//    }
+    @Override
+    public void makeTurn(Coordinates coordinates, Board board) {
+        board.placePlayer(coordinates, this);
+    }
 
 //    @Override
 //    public char getSymbol() {
