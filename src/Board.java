@@ -88,13 +88,5 @@ public class Board {
         } else {
             return 0;
         }
-
-//        if (entity instanceof Person) {
-//            return 1;
-//        } else if (entity instanceof Bot) {
-//            return -1;
-//        } else {
-//            return 0;
-//        }
     }
 }

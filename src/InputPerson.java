@@ -15,7 +15,7 @@ public class InputPerson {
                 continue;
             }
 
-           // try {
+            try {
                 int row = Integer.parseInt(input[0]);
                 int col = Integer.parseInt(input[1]);
 
@@ -28,9 +28,9 @@ public class InputPerson {
                     this.col = col;
                     return;
                 }
-//            } catch (NumberFormatException e) {
-//                throw new RuntimeException("Некорректное значение! Введите 2е цифры от 0 до 2");
-            //}
+            } catch (NumberFormatException e) {
+                throw new RuntimeException("Некорректное значение! Введите 2е цифры от 0 до 2");
+            }
         }
     }
     boolean isOutOfBoards(int row, int col) {
